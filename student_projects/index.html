@@ -11,6 +11,10 @@
 
   <meta name="author" content="Dr. Annalina Caputo" />
 
+  <!-- Load KaTeX -->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.1.1/katex.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.1.1/katex.min.js"></script>
+
   
 
   <link rel="shortcut icon" href="/favicon.ico">
@@ -321,10 +325,10 @@ The manufacturing industry’s adoption rate of ML and analytics to improve pred
 <h3 id="project-1">Project 1</h3>
 
 <blockquote>
-  <p>Employing Machine Learning to detect pores on Image Stacks (produced through $\mu$-CT) of an AM block.</p>
+  <p>Employing Machine Learning to detect pores on Image Stacks (produced through <script type="math/tex">\mu</script>-CT) of an AM block.</p>
 </blockquote>
 
-<p><strong>Dataset</strong>: ImageStacks of 2 builds of 10x10x10 $mm$ cubes are available, manufactured on AconityMINI 3D printer. The density ranges from 82.3% to 84.68% (Pulsed Laser), and 93.3% to 97.1% (Continuos Laser).</p>
+<p><strong>Dataset</strong>: ImageStacks of 2 builds of 10x10x10 <script type="math/tex">mm</script> cubes are available, manufactured on AconityMINI 3D printer. The density ranges from 82.3% to 84.68% (Pulsed Laser), and 93.3% to 97.1% (Continuos Laser).</p>
 
 <p><strong>Objectives</strong>:</p>
 
@@ -348,7 +352,7 @@ The manufacturing industry’s adoption rate of ML and analytics to improve pred
   <p>Analysing 81 Stainless-Steel cubes’ pyrometer data and gauge their sensitivity to the build parameters.</p>
 </blockquote>
 
-<p><strong>Dataset</strong>: Pyrometer data of 81  Stainless-Steel cubes, where each cube is manufactured with a different set of parameters. The build parameters are: Laser Power ($W$), Scanning speed ($mm/sec$), Spot size ($\mu m$), and Hatch spacing ($\mu m$).</p>
+<p><strong>Dataset</strong>: Pyrometer data of 81  Stainless-Steel cubes, where each cube is manufactured with a different set of parameters. The build parameters are: Laser Power (<script type="math/tex">W</script>), Scanning speed (<script type="math/tex">mm/sec</script>), Spot size (<script type="math/tex">\mu m</script>), and Hatch spacing (<script type="math/tex">\mu m</script>).</p>
 
 <p><strong>Objectives</strong>:</p>
 
@@ -373,7 +377,7 @@ The manufacturing industry’s adoption rate of ML and analytics to improve pred
   <p>Create a tool to visualise pyrometer data on a 3D plane.</p>
 </blockquote>
 
-<p><strong>Dataset</strong>: ImageStack of a Stainless-Steel cube of dimension 10x10x10 $mm$.</p>
+<p><strong>Dataset</strong>: ImageStack of a Stainless-Steel cube of dimension 10x10x10 <script type="math/tex">mm</script>.</p>
 
 <p><strong>Objectives</strong>:</p>
 
@@ -398,7 +402,7 @@ The manufacturing industry’s adoption rate of ML and analytics to improve pred
   <p>Evaluation of Machine Learning algorithms over descomposed time-series dataset.</p>
 </blockquote>
 
-<p><strong>Dataset</strong>:  Pyrometer data of two Stainless-Steel cubes of dimension 10x10x10 $mm$.</p>
+<p><strong>Dataset</strong>:  Pyrometer data of two Stainless-Steel cubes of dimension 10x10x10 <script type="math/tex">mm</script>.</p>
 
 <p><strong>Objectives</strong>:</p>
 
@@ -611,7 +615,23 @@ There are several subtopics that may be worth to be investigated in this area, s
 </footer>
 
 
-    
+    <!-- Parse the Latex divs with Katex-->
+<script type="text/javascript">
+  $("script[type='math/tex']").replaceWith(
+    function(){
+      var tex = $(this).text();
+      return katex.renderToString(tex, {displayMode: false});
+  });
+
+  $("script[type='math/tex; mode=display']").replaceWith(
+    function(){
+      var tex = $(this).text();
+      return katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+  });
+</script>
+
+
+
 
 
 
